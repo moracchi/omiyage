@@ -1,0 +1,354 @@
+/* 基本設定 */
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #723d1e;
+    --primary-light: #a67c52;
+    --primary-dark: #4a2812;
+    --bg-color: #f8f6f1;
+    --paper-color: #fffdf9;
+    --text-color: #4a3831;
+    --accent-color: #c78a6b;
+}
+
+body {
+    font-family: 'Shippori Mincho', "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.7;
+    position: relative;
+    overflow-x: hidden;
+    letter-spacing: 0.02em;
+}
+
+.washi-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23876445' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+    z-index: -1;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+/* さくら装飾 */
+.sakura-petals {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+}
+
+@keyframes sakuraFall {
+    0% {
+        transform: translateY(-5%) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.8;
+    }
+    90% {
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(105%) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* ヘッダー */
+header {
+    text-align: center;
+    margin-bottom: 70px;
+    position: relative;
+}
+
+.subtitle {
+    font-size: 1rem;
+    color: var(--primary-color);
+    margin-bottom: 8px;
+    opacity: 0.85;
+    letter-spacing: 2px;
+    position: relative;
+    display: inline-block;
+}
+
+.subtitle::before, .subtitle::after {
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 30px;
+    background-color: rgba(114, 61, 30, 0.35);
+    top: 50%;
+}
+
+.subtitle::before {
+    right: calc(100% + 15px);
+}
+
+.subtitle::after {
+    left: calc(100% + 15px);
+}
+
+.main-title {
+    font-size: 2.8rem;
+    font-weight: 500;
+    color: var(--primary-color);
+    padding: 15px 0;
+    position: relative;
+    display: inline-block;
+    letter-spacing: 0.05em;
+    text-shadow: 1px 1px 2px rgba(114, 61, 30, 0.1);
+}
+
+.main-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    height: 2px;
+    background: linear-gradient(to right, rgba(114, 61, 30, 0), rgba(114, 61, 30, 0.5), rgba(114, 61, 30, 0));
+}
+
+.title-decoration {
+    width: 120px;
+    height: 30px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 25'%3E%3Cpath d='M0,12.5 C25,5 75,20 100,12.5' stroke='%23723d1e' stroke-width='1' fill='none' /%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin: 15px auto;
+    opacity: 0.6;
+}
+
+/* ランキングアイテム */
+.ranking-item {
+    background-color: var(--paper-color);
+    border-radius: 10px;
+    margin-bottom: 60px;
+    box-shadow: 0 6px 20px rgba(114, 61, 30, 0.07);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    border-left: 4px solid var(--primary-color);
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.ranking-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(114, 61, 30, 0.12);
+}
+
+/* ランクバッジの拡張スタイル */
+.rank-badge {
+    position: absolute;
+    top: -18px;
+    left: -18px;
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.6rem;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+    transition: all 0.3s ease;
+    transform-origin: center;
+    animation: pulseBadge 3s infinite ease-in-out;
+    letter-spacing: 0.03em;
+}
+
+@keyframes pulseBadge {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+    }
+}
+
+#rank1 .rank-badge {
+    background: linear-gradient(135deg, #f9d423, #daa520, #f1c40f);
+    border: 2px solid white;
+}
+
+#rank2 .rank-badge {
+    background: linear-gradient(135deg, #bdc3c7, #a8a9ad, #d6d6d6);
+    border: 2px solid white;
+}
+
+#rank3 .rank-badge {
+    background: linear-gradient(135deg, #e79c56, #cd7f32, #e67e22);
+    border: 2px solid white;
+}
+
+.ranking-item:hover .rank-badge {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.item-content {
+    display: flex;
+    padding: 35px 25px 35px 75px;
+}
+
+.item-image {
+    flex: 0 0 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 40px;
+}
+
+.wagashi-image {
+    max-width: 100%;
+    height: auto;
+    transform: translateY(0);
+    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.12));
+    opacity: 0;
+    transition: opacity 0.8s ease, transform 0.5s ease;
+}
+
+.item-info {
+    flex: 1;
+}
+
+.item-info h2 {
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    border-bottom: 1px dashed #d7b494;
+    padding-bottom: 8px;
+    display: inline-block;
+    font-weight: 500;
+}
+
+.origin {
+    font-size: 1rem;
+    color: var(--primary-color);
+    opacity: 0.8;
+    margin-bottom: 18px;
+    font-style: italic;
+}
+
+.description {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    line-height: 1.9;
+}
+
+/* フッター */
+footer {
+    text-align: center;
+    padding: 40px 0 20px;
+    margin-top: 40px;
+    color: var(--primary-color);
+    opacity: 0.7;
+    font-size: 0.9rem;
+    position: relative;
+}
+
+.footer-decoration {
+    width: 200px;
+    height: 30px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 20'%3E%3Cpath d='M0,10 C50,2 150,18 200,10' stroke='%23723d1e' stroke-width='0.5' fill='none' /%3E%3Cpath d='M0,15 C40,5 160,25 200,15' stroke='%23723d1e' stroke-width='0.5' fill='none' /%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin: 0 auto 20px;
+    opacity: 0.5;
+}
+
+/* アニメーション */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.wagashi-image.animate {
+    opacity: 1;
+    animation: float 5s ease-in-out infinite;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .item-content {
+        flex-direction: column;
+        padding: 30px 20px 30px 60px;
+    }
+    
+    .item-image {
+        margin-right: 0;
+        margin-bottom: 30px;
+    }
+    
+    .main-title {
+        font-size: 2.2rem;
+    }
+    
+    .rank-badge {
+        width: 75px;
+        height: 75px;
+        font-size: 1.4rem;
+    }
+    
+    .item-info h2 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 40px 15px;
+    }
+    
+    .main-title {
+        font-size: 1.8rem;
+    }
+    
+    .rank-badge {
+        width: 65px;
+        height: 65px;
+        font-size: 1.2rem;
+        top: -10px;
+        left: -10px;
+    }
+    
+    .item-content {
+        padding: 25px 15px 25px 45px;
+    }
+    
+    .item-info h2 {
+        font-size: 1.5rem;
+    }
+    
+    .description {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+}
